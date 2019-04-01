@@ -5,11 +5,24 @@ module.exports = function (controller) {
         bot.startConversation(message, function (err, convo) {
             convo.say('Ok lets check your Blood Sugar Level');
 
-            var fs = require('fs');
-            var bloodsugar = fs.readFileSync('value.txt', 'utf-8')
+var request = require('request');
+request.get({
+    url: "https://rkt1d.herokuapp.com/api/v1/entries/current.json",
+    json: true,
+    headers: {'User-Agent': 'request'}
+               }, (err, res, data) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+    var bloodsugar = data
+    }
+});
+
 
            
-            convo.say(bloodsugar);
+            convo.say(bloodsugar[0].sgv);
             convo.ask('ok this looks ok!', function (response, convo) {
                 
                 convo.next();
