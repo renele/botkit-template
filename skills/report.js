@@ -1,4 +1,4 @@
-https://user-images.githubusercontent.com/37514390/42634676-1ba67bfa-85e4-11e8-9f6c-421dc278363b.jpg
+// https://user-images.githubusercontent.com/37514390/42634676-1ba67bfa-85e4-11e8-9f6c-421dc278363b.jpg
 
 var request = require('request');
 module.exports = function (controller) {
@@ -23,10 +23,7 @@ request(options, function (error, response, body) {
 
   bot.reply(message,{text:'Here is your file!', files:['https://user-images.githubusercontent.com/37514390/42634676-1ba67bfa-85e4-11e8-9f6c-421dc278363b.jpg']});
 
-                convo.say(response.body.hdurl , function (response, convo) {
-                convo.say();    
-                    convo.next();
-                                    });
+
                 });
     
               })
