@@ -16,7 +16,7 @@ module.exports = function (controller) {
                 console.log(sgv);  
               
                 
-                convo.say(sgv + ' this looks ok!', function (response, convo) {
+                convo.say(sgv + ' this looks low!', function (response, convo) {
                 convo.say();    
                     convo.next();
                 });
